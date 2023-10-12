@@ -1,0 +1,43 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+<div class="container mt-lg-5 ">
+  
+    {% if user.is_authenticated %}
+        {% if search_data %}
+            <h3>You are searched for {{bar_field}}</h3><hr>
+            <h4>List of Medicins :</h4>
+            {% for search in search_data %}
+                <a href="medicine_detail/{{ search.id }}"><h5> <strong>{{search}}</strong></h5></a> 
+                <h5> Purpose : {{search.purpose}}</h5> 
+                <h5> Dosage : {{search.dosage}}</h5> 
+                <h5> Unit : {{search.unit}}</h5>
+                <h5> Stock : {{search.stock}}</h5><hr>
+            {% endfor %}
+        {% else %}
+            <h3>You are searched for {{bar_field}}</h3><br/>
+            <h2>No medicins found</h2><br/>
+        {% endif %}
+    {% else %}
+        <h3>Login required for search medicins</h3><hr>
+    
+    {% endif %}
+        
+    <!-- {% if search_data %}
+        <h3>You are searched for {{bar_field}}</h3><hr>
+        <h4>List of Medicins :</h4>
+        {% for search in search_data %}
+            <a href="medicine_detail/{{ search.id }}"><h5> <strong>{{search}}</strong></h5></a> 
+            <h5> Purpose : {{search.purpose}}</h5> 
+            <h5> Dosage : {{search.dosage}}</h5> 
+            <h5> Unit : {{search.unit}}</h5>
+            <h5> Stock : {{search.stock}}</h5><hr>
+        {% endfor %}
+    {% else %}
+        <h3>You are searched for {{bar_field}}</h3><br/>
+        <h2>No medicins found</h2><br/>
+    {% endif %}
+     -->
+</div>
+
+{% endblock %}

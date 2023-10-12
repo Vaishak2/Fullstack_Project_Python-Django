@@ -1,0 +1,30 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+<div class="container mt-lg-5 ">
+    <h1>Doctors Page</h1>
+    {% if perms.med_site.can_edit %}
+        <a href=""><button class="btn btn-success">Add Doctor Details</button></a>
+    {% endif %}
+    <hr>
+    <h2>Available Doctors :</h2>
+    <p>Get an appointment for consulting:</p>
+    <div class="container-doc" ></div>        
+        {% for doc in all_doc %}
+            <div class="card" style="width: 190px; height:433px; display: inline-flex;">
+                <img src="{{ doc.doc_image.url }}" class="card-img-top" style=" width: 180px; height: 190px;" >
+                <div class="card-body">
+                    <h5 class="card-title">Dr.{{ doc.doc_name}}</h5>
+                    <p class="card-text">{{doc.doc_spec}}</p>
+                    <p class="card-text">{{doc.dep_name}}</p>
+                    <a href="#" class="btn btn-success">Get appointment</a>
+                </div>
+            </div>
+       
+        {% endfor %}
+    </div>
+    <br>
+    <h5>Total Available: {{ num_doc }}</h5>
+</div>
+
+{% endblock %}

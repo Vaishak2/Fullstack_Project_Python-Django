@@ -1,0 +1,20 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+  
+  <h2 style="margin-top: 40px;">Medicine Details</h2>
+  <hr>
+
+  <p><strong>Medicine Name :</strong> <a href="">{{ medicine.med_name }}</a></p> 
+  <p><strong>Purpose :</strong> {{ medicine.purpose }}</p> 
+  <p><strong>Unit :</strong> {{ medicine.unit }}</p>
+  <p><strong>Dosage :</strong> {{ medicine.dosage }}</p> 
+  <p><strong>Stock Available : </strong> {{ medicine.stock }}</p>  
+  <hr>
+  {% if perms.med_site.add_medicine %}
+    <a href="update/{{ medicine.id }}"><button class="btn btn-success mr-2">Update</button></a>
+    <a href="delete/{{ medicine.id }}"><button class="btn btn-danger">Delete</button></a>
+  {% endif %}
+
+  
+{% endblock %}

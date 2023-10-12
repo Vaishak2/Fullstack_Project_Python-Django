@@ -1,0 +1,20 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+<div class="container  " style="display: flex; margin-top: 130px; margin-left: 20px;  flex-direction: column;">
+    <h1>MEDi STORE</h1>
+    <h3>Welcome to Medi Store.</em>!</h3>
+    <h4>A website for Medical consulting & ordering</em>!</h4>
+    <h4>High quality medicines at lowest rates</em>!</h4>
+    <!-- <h5>Get Better Life</h5> -->
+    <a href="{% url 'medicine_list' %}"><button type="button" class="btn btn-success mt-2 display-inline" style="width: 120px;">Shop Now</button></a></n>
+    
+    
+    
+</div>
+<div class="clock">
+    <!-- <h5>Clock</h5> -->
+    <!-- {{time_today}} -->
+</div>
+
+{% endblock %}

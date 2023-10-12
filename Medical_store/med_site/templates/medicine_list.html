@@ -1,0 +1,25 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+<div class="container mt-lg-5 ">
+    {% if perms.med_site.add_medicine %}
+        <h1>MediStore Medicals</h1><a href="{% url 'med_create'%}"><button class="btn btn-success">Add Medicine</button></a><hr>
+    {% endif %}
+      
+    <h2>Medication Details</h2>
+    <p>The list of available Medicines:</p>
+    <ul>
+        {% for Medicine in all_med %}
+            <li >
+                <h6 ><a class="{% if Medicine.dosage == 'Low' %}text-success{% elif Medicine.dosage == 'High' %}text-danger{% elif Medicine.dosage == 'Medium'%}text-warning{% endif %}" href="medicine_detail/{{ Medicine.id }}">
+                    
+                    {{ Medicine.med_name }} </a>({{ Medicine.unit }})</h6>
+            </li>
+        {% endfor %}
+    </ul><hr>
+
+
+    <h5>Total Available: {{ num_med }}</h5>
+</div>
+
+{% endblock %}

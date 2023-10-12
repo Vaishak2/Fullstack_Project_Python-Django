@@ -1,0 +1,17 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+    <form method="POST">
+        <div class="container_reg" >
+            <h2 >User Signup form</h2>
+            <div class="container_reg_form" >
+                {% csrf_token %}
+                {{form}}
+
+                <br>
+                <input class="btn-success" style="width: 120px; height: 35px; border-radius: 5px;" type="submit" value="Register">
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
